@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type='text/javascript'></script>
+    <script src="/src/script/setup.js" type='text/javascript'></script>
+    <script>
+        $(document).ready(function(){
+            appendHTML("/src/module/head.html", "head");
+			appendHTML("/src/favicons/html_code.html", "head");
+            appendHTML("/src/module/aside.html", "aside");
+            appendCSS("/src/style/cider.css", "body");
+            appendSelfCSS("body");
+            
+            // Page Specific HTML & CSS & JS Load
+        });
+    </script>
+    <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+    <!-- Load the element definition -->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="layout">
+        <aside>
+        </aside>
+    
+        <!-- ==================== Edit Only This ==================== -->
+        <!-- ==================== Edit Only This ==================== -->
+        <!-- ==================== Edit Only This ==================== -->
+
+        <header><!-- ========== This will be listed on Projects Page ========== -->
+            <h4>Trial Header Alpha</h4>
+        </header>
+
+        <main>
+            <section id="showcase-img" style="height: 20rem; width: fit-content; margin: 0 auto;">
+                <!-- ========== This will be shown on Projects Page ========== -->
+                <img src="/src/image/raw/profile.jpeg" style="height: 100%;">
+            </section>
+            
+            <div>
+                <!-- Simply set the `src` attribute to your MD file and win -->
+                <zero-md src="/src/page/projects/md/example.md"></zero-md>
+            </div>
+        </main>
+
+        
+        
+
+
+        <footer>
+            <p>&copy; 2022. All rights reserved.</p>
+        </footer>
+
+        <!-- ==================== Edit Only This ==================== -->
+        <!-- ==================== Edit Only This ==================== -->
+        <!-- ==================== Edit Only This ==================== -->
+
+    </div>
+
+    <!-- Page Specific Scripts Load -->
+    <script>
+
+    </script>
+    
+</body>
+</html> 
+  

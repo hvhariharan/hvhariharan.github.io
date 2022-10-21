@@ -1,0 +1,56 @@
+<header>
+    <h4>Trial Header</h4>
+</header>
+
+<main>
+  <section class="contact">
+
+    <section class="contact-me">
+      <section class="title">
+        Contact me
+      </section>
+      <li icon="phone"><a href="https://www.google.com/"> (+39) 366 822 4808 </a></li>
+      <li icon="mail"><a href="https://www.google.com/"> vvh1997@gmail.com </a></li>
+      <li icon="map"><a href="https://www.google.com/"> Via Angelo Masina, 1, Milan, Italy. </a></li>    
+    </section>
+  
+    <section class="message-me">
+      <section class="title">
+        Leave a message
+      </section>
+          
+      <form method="POST" id="contact-form">
+        
+        <label>
+          <input name="Name" type="text" placeholder="Name" required/>
+        </label>
+        <label>
+          <input name="Email" type="text" placeholder="Email" required/>
+        </label>
+        <label>
+          <textarea name="Message" placeholder="Message" required></textarea>
+        </label>
+        <label>
+          <input name="Urgent" type="checkbox" value="y" id="urgentCheckbox"/>
+          Important?
+        </label>
+        
+        <section class="captcha"> 
+          <progress id="CaptchaTimeoutProgress" value="0" max="20"> </progress>
+          <p class="prevent-select" id="mainCaptcha" onclick="RefreshCaptcha()"></p>
+          <figcaption class="prevent-select">Click on captcha to refresh</figcaption>
+          <script>Captcha();</script>
+          <input type="text" id="captchaInput" placeholder="Captcha" onclick="clearTextArea(this)" required/>
+        </section>
+  
+        <label><input type="submit" name="contact_submit" value="Get in touch!" onclick="ValidateAndSheets();" /></label><br>
+  
+      </form>
+    </section>
+  
+  </section>
+</main>
+
+<footer>
+    <p>&copy; 2022a. All rights reserved.</p>
+</footer>

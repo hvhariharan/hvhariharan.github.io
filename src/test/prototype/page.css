@@ -1,0 +1,178 @@
+.contact {  
+    margin: 0 auto;
+    max-width: 30rem;
+    padding: 0rem;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(min-content, max-content)  minmax(min-content, max-content);
+    grid-gap: 0rem 0rem;
+    grid-template-areas:
+      "contactme"
+      "messageme";
+  }
+
+  .contact .prevent-select{
+      margin: 0 auto;
+  }
+
+  .contact-me{
+    grid-area: contactme; 
+    color: var(--dove);
+    font-family: var(--sans-1);
+    font-size: 1.25rem;
+    padding: 2rem;
+    border-radius: 1rem 1rem 0 0;
+    background: 
+      linear-gradient(rgba(var(--graphite-rgb), 0.0), rgba(var(--graphite-rgb), 0.0)),
+      url("/src/image/map.png");
+  }
+  .message-me{
+    grid-area: messageme; 
+    color: var(--graphite);
+    font-family: var(--sans-1);
+    font-size: 1.25rem;
+    padding: 2rem;
+    border-radius: 0 0 1rem 1rem;
+    background: 
+      linear-gradient(rgba(var(--graphite-rgb), 0.0), rgba(var(--graphite-rgb), 0.0)),
+      url("/src/image/map_inv.png");
+  }
+
+  .contact .title{
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1em;
+    border-bottom: 3px solid;
+    margin-bottom: 2em;
+  }
+  .contact li{
+    margin: 2rem 0 2rem 0;
+    list-style: none;
+  }
+  .contact li a{
+    text-decoration: none;
+    color: inherit;
+  }
+  .contact li a:hover,
+  .contact li a:focus{
+    font-weight: bolder;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .contact li::before{
+    text-decoration: none;
+    font-family: "Material Symbols Outlined"; 
+    font-weight: 800;
+    content: attr(icon);
+    font-size: inherit;
+    vertical-align: bottom;
+    padding-right: 1rem;
+  }
+
+  .contact label {
+    font-weight: bold;
+  }
+  
+  .contact input,
+  .contact textarea{
+    display: inline-block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.1rem solid var(--graphite);
+    margin: 1em 0;
+    font-size: 1.25rem;
+  }
+  .contact textarea{
+    min-height: 6em;
+  }
+  .contact input[type=submit]{
+    font-weight: bolder;
+    width: 12rem;
+    padding: 0.5em ;
+    border: 0.1rem solid var(--graphite);
+    border-radius: 1em;
+    background-color: var(--graphite);
+    color: var(--dove);
+    cursor: pointer;
+  }
+
+  .contact input:hover,
+  .contact input:active,
+  .contact textarea:hover,
+  .contact textarea:active{
+    background-color: rgba(var(--dove-rgb), 0.5);
+  }
+  .contact input[type=submit]:hover,
+  .contact input[type=submit]:focus{
+    background-color: var(--accent-1);
+  }
+
+  .contact input:focus,
+  .contact textarea:focus{
+    background-color: var(--dove);
+  }
+
+  .contact #urgentCheckbox {
+    width: fit-content;
+  }
+
+  .captcha {
+    width: fit-content;
+    border: 0.1rem solid rgba(var(--graphite-rgb), 0);
+    border-radius: 1em;
+    text-align: center;
+  }
+  .captcha progress{
+    height: 0.33em;
+  }
+  .captcha input{
+    margin-top: 0;
+    font-size: 1rem;
+  }
+  /* background: */
+  .captcha progress::-webkit-progress-bar {background-color: var(--dove); width: 100%;}
+  .captcha progress {background-color: var(--dove);}
+
+  /* value: */
+  .captcha progress::-webkit-progress-value {background-color: var(--accent-1) !important;}
+  .captcha progress::-moz-progress-bar {background-color: var(--accent-1)green !important;}
+  .captcha progress {color: var(--accent-1);}
+
+  .captcha #mainCaptcha{
+    padding: 1rem 0;
+    border: 0.2rem solid var(--graphite);
+    cursor: pointer;
+  }
+  .captcha #mainCaptcha:hover{
+    border: 0.2rem solid var(--accent-1);
+  }
+
+  .captcha figcaption{
+    font-family: var(--mono-1);
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+
+  .captcha #captchaInput{
+    text-align: center;
+    font-family: var(--mono-1);
+    margin-top: 1rem;
+  }
+  
+  @media screen and (max-width: 479px) {
+    /* start of phone styles */
+    .contact{
+      width: 100%;
+    }
+    .contact-me{
+      text-align: center;
+    }
+    .message-me{
+      text-align: center;
+    }
+    .captcha {
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+  }

@@ -1,0 +1,69 @@
+.gallery-conatiner {
+    display: grid;
+    grid-auto-rows: fit-content;
+    grid-template-areas:    "gallery-title"
+                            "gallery-body";
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0px 0px 5px 5px rgba(var(--shadow-rgb), 0.05);   
+    gap: 1rem;   
+    margin-top: 2rem;
+    margin-bottom: 4rem;                  
+}
+
+.gallery-conatiner title {
+    grid-area: gallery-title;
+    display: block;
+    font-family: var(--display-1);
+    font-size: 2rem;
+    font-weight: bolder;
+    border-bottom: 0.2rem solid var(--graphite);
+}
+
+
+.projects-gallery {
+    display: grid;
+    grid-area: gallery-body;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 2rem;
+    grid-auto-rows: 8rem;
+    /*border: 0.2rem solid var(--graphite);*/
+}
+
+.projects-entry{
+    display: flex;
+    border-radius: 1.25rem;
+    align-items: flex-end;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(var(--graphite-rgb), 0.5), rgba(var(--graphite-rgb), 0.5)),
+                var(--proj-bg);
+    filter: grayscale(100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+.projects-entry:after{
+    color: var(--dove);
+    font-size: 1.25rem;
+    font-family: var(--sans-1);
+    font-weight: bolder;
+    content: attr(proj-title);
+    margin-bottom: 0.5em;
+    padding: 0 1rem;
+    text-align: center;
+}
+.projects-entry:hover{
+    --hover-scale: 105%;
+    border: 0.2rem solid var(--accent-1);
+    background: var(--proj-bg);
+    filter: grayscale(0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scale(var(--hover-scale));
+    box-shadow: 0px 0px 5px 5px rgba(var(--shadow-rgb), 0.2);
+}

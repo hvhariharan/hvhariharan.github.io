@@ -1,0 +1,324 @@
+:root {
+    /* sizes */
+    --header-height_pc: 4rem;
+    --sidebar-width_pc: 20rem;
+
+    /* fonts */
+    --sans-1: "Raleway";
+    --serif-1: "Noto Serif";
+    --display-1: "Comfortaa";
+    --mono-1: "Roboto Mono";
+    --font-pc: 16px;
+    --font-mobile: 14px;
+
+    /* colors */
+    --graphite: #202020;
+    --dove: #ffffff;
+    --ash: #c3c3c3;
+    --shadow: #000000;
+    --accent-1: #557ee4;
+
+    --graphite-rgb: 32, 32, 32;
+    --dove-rgb: 255, 255, 255;
+    --ash-rgb: 151, 151, 151;
+    --shadow-rgb: 0, 0, 0;
+    --accent-1-rgb: 85, 126, 228;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* @Media Specific Styling */
+/* ----------------------- */
+
+/* start of desktop styles */
+html {
+    font-size: var(--font-pc);
+}
+.layout {  
+    height: 100vh;
+    width: 100vw;
+    padding: 0rem;
+    display: grid;
+    grid-template-columns: var(--sidebar-width_pc) auto;
+    grid-template-rows: var(--header-height_pc) minmax(max-content, 1fr)  2rem;
+    grid-gap: 1rem 4rem;
+    grid-template-areas:
+      "sidebar banner"
+      "sidebar pagecontent"
+      "sidebar floor";
+}
+
+@media screen and (max-width: 991px) {
+    /* start of large tablet styles */
+    html {
+        font-size: var(--font-pc);
+    }
+    .layout {
+        grid-template-columns: calc(var(--sidebar-width_pc)*0.8) auto;
+        grid-template-rows: var(--header-height_pc) minmax(max-content, 1fr)  2rem;
+    }    
+}
+    
+@media screen and (max-width: 479px) {
+    /* start of phone styles */
+    html {
+        font-size: var(--font-mobile);
+    }
+    .layout {
+        grid-template-columns: auto;
+        grid-template-rows: minmax(max-content, 1fr) 4rem minmax(max-content, 1fr) minmax(max-content, 1fr);
+        grid-gap: 1rem 1rem;
+        grid-template-areas:
+            "sidebar"
+            "banner"
+            "pagecontent"
+            "floor";
+    }
+    
+}
+
+@media screen and (max-width: 300px) {
+    /* start of small phone styles */
+    html {
+        font-size: var(--font-mobile);
+    }    
+}
+/* ----------------------- */
+/* @Media Specific Styling */
+
+
+aside { 
+    --bg-image: url(/src/image/aside_bg.webp);
+    display: flex;
+    justify-content: center;
+    grid-area: sidebar; 
+    align-items: end;
+    font-family: var(--sans-1);
+    background: 
+        linear-gradient(180deg, rgba(var(--graphite-rgb), 1), rgba(var(--graphite-rgb), 0.3)), 
+        var(--bg-image);
+}
+
+header { 
+    grid-area: banner; 
+    background-color: var(--graphite);
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    text-anchor: middle;
+    font-family: var(--sans-1);
+    font-weight: bolder;
+}
+
+main { 
+    grid-area: pagecontent; 
+    background-color: var(--dove);
+    margin: 0 2rem 0 2rem;
+}
+
+footer { 
+    grid-area: floor; 
+    background-color: var(--graphite);
+    color: var(--ash);
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    text-anchor: middle;
+    font-family: var(--sans-1);
+    font-weight: bolder;
+}
+
+
+
+header h4 { 
+    color: var(--dove);
+    font-size: 1.75rem;
+}
+
+footer p { 
+    color: var(--dove);
+    font-size: medium;
+}
+
+.profile {
+    display: flex;
+    width: 100%;
+    display: grid;
+    padding: 0rem;
+    /*border: 3px dotted red;*/
+    grid-template-columns: auto;
+    grid-template-rows: repeat(6, auto);
+    grid-gap: 0rem 0rem;
+    grid-template-areas:
+      "profile-greeting"
+      "profile-img"
+      "profile-info"
+      "profile-links"
+      "profile-nav"
+      "profile-footer";
+    align-items: center;
+    margin: 1rem;
+}
+
+.profile img{
+    width: 7rem;
+    height: 7em;
+    grid-area: profile-img; 
+    border-radius: 50%;
+    margin: 1em 0;
+    box-shadow: 0px 0px 15px 5px rgba(var(--shadow-rgb), 0.5);
+}
+
+.profile .title{
+    grid-area: profile-greeting;
+    color: var(--dove);
+    font-size: 3rem;
+    font-weight: bolder;
+    font-family: var(--display-1);
+    vertical-align: middle;
+    line-height: 2em;
+    border-bottom: 3px solid white;
+}
+
+.profile .info{
+    grid-area: profile-info;
+    color: var(--dove);
+    list-style: none;
+    line-height: 2em;
+    padding: 1em 0 1em 0;
+}
+
+.profile .info li::before {
+    font-family: "Material Symbols Outlined"; 
+    font-weight: 800;
+    content: attr(icon);
+    font-size: inherit;
+    vertical-align: bottom;
+    padding-right: 1rem;
+}
+
+.profile .info li {
+    font-weight: bolder;
+    padding-left: 0;
+}
+
+.profile .links {
+    grid-area: profile-links;
+    border-top: 3px solid var(--dove);
+    border-bottom: 3px solid var(--dove);
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.profile .links a {
+    text-decoration: none;
+    color: var(--dove);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.profile .links a:hover,
+.profile .links a:focus {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.profile nav {
+    grid-area: profile-nav;
+    padding: 1em 0 1em 0;
+}
+
+.profile nav a{
+    display: block;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    text-decoration: none;
+    font-weight: bolder;
+    color: white;
+    line-height: 2em;
+    cursor: pointer;
+}
+
+.profile nav a:hover,
+.profile nav a:focus {
+    text-decoration: underline;
+}
+
+.profile footer {
+    grid-area: profile-footer;
+    color: var(--ash);
+    background-color: transparent;
+    padding: 0;
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+@media screen and (max-width: 479px) {
+    /* start of phone styles */
+    .profile {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .profile img{
+        margin: 1em auto;
+    }
+    .profile .title{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin: 0 2rem;
+    }
+    .profile .info{
+        margin: 0 auto;
+        text-align: center;
+    }
+    .profile .links {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        gap: 2rem;
+        margin: 0 2rem;
+    }
+    .profile .links a {
+        padding: 0;
+    }
+    .profile nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        gap: 1em 1em
+    }
+    .profile nav a{
+        line-height: 1em;
+    }
+    .profile footer {
+        display: block;
+        text-align: center;
+    }
+}

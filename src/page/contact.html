@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type='text/javascript'></script>
+    <script src="/src/script/setup.js" type='text/javascript'></script>
+    <script>
+        $(document).ready(function(){
+            appendHTML("/src/module/head.html", "head");
+			appendHTML("/src/favicons/html_code.html", "head");
+            appendHTML("/src/module/aside.html", "aside");
+            appendCSS("/src/style/cider.css", "body");
+			appendSelfCSS("body");
+
+            // Page Specific HTML & CSS & JS Load
+        });
+    </script>
+</head>
+
+<body>
+	<div class="layout">
+		<aside>
+		</aside>
+
+		<!-- ==================== Edit Only This ==================== -->
+		<!-- ==================== Edit Only This ==================== -->
+		<!-- ==================== Edit Only This ==================== -->
+
+		<header>
+			<h4>Trial Header</h4>
+		</header>
+
+		<main>
+			<section class="contact">
+
+				<section class="contact-me">
+					<section class="title">
+						Contact me
+					</section>
+					<li icon="phone"><a href="tel:+39366-822-4808"> (+39) 366 822 4808 </a></li>
+					<li icon="mail"><a href="mailto:vvh1997+website@gmail.com"> vvh1997@gmail.com </a></li>
+					<li icon="map"><a href="https://www.google.com/maps/place/Via+Angelo+Masina,+1,+20158+Milano+MI/@45.5004405,9.1635386,12.23z/data=!4m5!3m4!"> Via Angelo Masina, 1, Milan, Italy. </a></li>    
+				</section>
+			
+				<section class="message-me">
+					<section class="title">
+						Leave a message
+					</section>
+					
+					<form method="POST" id="contact-form">
+						
+						<label>
+						<input name="Name" type="text" placeholder="Name" required/>
+						</label>
+						<label>
+						<input name="Email" type="text" placeholder="Email" required/>
+						</label>
+						<label>
+						<textarea name="Message" placeholder="Message" required></textarea>
+						</label>
+						<label>
+						<input name="Urgent" type="checkbox" value="y" id="urgentCheckbox"/>
+						Important?
+						</label>
+						
+						<section class="captcha"> 
+						<progress id="CaptchaTimeoutProgress" value="0" max="20"> </progress>
+						<p class="prevent-select" id="mainCaptcha" onclick="RefreshCaptcha()"></p>
+						<figcaption class="prevent-select">Click on captcha to refresh</figcaption>
+						<input type="text" id="captchaInput" placeholder="Captcha" onclick="clearTextArea(this)" required/>
+						</section>
+				
+						<label><input type="submit" name="contact_submit" value="Get in touch!" onclick="ValidateAndSheets();" /></label><br>
+				
+					</form>
+				</section>
+			
+			</section>
+		</main>
+
+		<footer>
+			<p>&copy; 2022. All rights reserved.</p>
+		</footer>
+
+		<!-- ==================== Edit Only This ==================== -->
+		<!-- ==================== Edit Only This ==================== -->
+		<!-- ==================== Edit Only This ==================== -->
+
+	</div>
+
+	<!-- Page Specific Scripts Load -->
+	<script>
+		appendJS("/src/script/contact.js", "body");
+		appendJS("//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js", "body");
+	</script>
+  
+</body>
+</html> 
+
