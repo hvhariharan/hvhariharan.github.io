@@ -58,8 +58,7 @@ body {
 }
 
 .sidebars{
-    display: block;
-    float: left;
+    display: flex;
     width: var(--sidebar-width);
     height: calc(100vh - (100vh - 100%));
     position: fixed;
@@ -111,8 +110,6 @@ body {
 aside { 
     --bg-image: url(/src/image/aside_bg.webp);
     display: flex;
-    justify-content: center;
-    align-items: end;
     font-family: var(--sans-1);
     background: 
         linear-gradient(180deg, rgba(var(--graphite-rgb), 1), rgba(var(--graphite-rgb), 0.3)), 
@@ -173,86 +170,6 @@ footer {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-aside { 
-    --bg-image: url(/src/image/aside_bg.webp);
-    display: flex;
-    justify-content: center;
-    grid-area: sidebar; 
-    align-items: end;
-    font-family: var(--sans-1);
-    background: 
-        linear-gradient(180deg, rgba(var(--graphite-rgb), 1), rgba(var(--graphite-rgb), 0.3)), 
-        var(--bg-image);
-}
-
-header { 
-    grid-area: banner; 
-    background-color: var(--graphite);
-    padding-left: 2rem;
-    display: flex;
-    align-items: center;
-    text-anchor: middle;
-    font-family: var(--sans-1);
-    font-weight: bolder;
-}
-
-main { 
-    grid-area: pagecontent; 
-    background-color: var(--dove);
-    margin: 0 2rem 0 2rem;
-}
-
-footer { 
-    grid-area: floor; 
-    background-color: var(--graphite);
-    color: var(--ash);
-    padding-left: 2rem;
-    display: flex;
-    align-items: center;
-    text-anchor: middle;
-    font-family: var(--sans-1);
-    font-weight: bolder;
-}
-
-
-
 header h4 { 
     color: var(--dove);
     font-size: 1.75rem;
@@ -264,14 +181,11 @@ footer p {
 }
 
 .profile {
-    display: flex;
     width: 100%;
     display: grid;
+    height: min-content;
     padding: 0rem;
-    /*border: 3px dotted red;*/
-    grid-template-columns: auto;
-    grid-template-rows: repeat(6, auto);
-    grid-gap: 0rem 0rem;
+    grid-template-rows: repeat(6, min-content);
     grid-template-areas:
       "profile-greeting"
       "profile-img"
@@ -279,8 +193,9 @@ footer p {
       "profile-links"
       "profile-nav"
       "profile-footer";
-    align-items: center;
     padding: 1rem;
+    position: absolute;
+    bottom: 0;
 }
 
 .profile img{
@@ -387,6 +302,7 @@ footer p {
         margin: 0;
         margin-top: 1rem;
         margin-bottom: 1rem;
+        position: relative;
     }
     .profile img{
         margin: 1em auto;
