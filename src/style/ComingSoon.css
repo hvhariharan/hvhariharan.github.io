@@ -23,7 +23,7 @@
     text-align: center;
     border: 0px solid var(--graphite); 
     border-radius: 1rem;
-    box-shadow: 0px 0px 15px 5px rgba(var(--shadow-rgb), 0.5);
+    box-shadow: 0px 0px 5px 5px rgba(var(--shadow-rgb), 0.05);   
 }
 
 .splash-up{
