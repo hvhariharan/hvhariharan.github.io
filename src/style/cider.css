@@ -1,7 +1,10 @@
 :root {
     /* sizes */
-    --header-height_pc: 4rem;
-    --sidebar-width_pc: 20rem;
+    --header-height: 4rem;
+    --footer-height: 2rem;
+    --sidebar-width: 20rem;
+    --content-margin: 2rem;
+    --main-margin: 2rem;
 
     /* fonts */
     --sans-1: "Raleway";
@@ -47,64 +50,164 @@ body {
   padding: 0;
 }
 
-/* @Media Specific Styling */
-/* ----------------------- */
 
-/* start of desktop styles */
-html {
-    font-size: var(--font-pc);
+.container {  
+    width: calc(100vw - (100vw - 100%) - var(--sidebar-width) - var(--content-margin));
+    margin-left: calc(var(--sidebar-width) + var(--content-margin));
+    height: fit-content;
 }
-.layout {  
-    height: 100vh;
-    width: 100vw;
-    padding: 0rem;
-    display: grid;
-    grid-template-columns: var(--sidebar-width_pc) auto;
-    grid-template-rows: var(--header-height_pc) minmax(max-content, 1fr)  2rem;
-    grid-gap: 1rem 4rem;
-    grid-template-areas:
-      "sidebar banner"
-      "sidebar pagecontent"
-      "sidebar floor";
+
+.sidebars{
+    display: block;
+    float: left;
+    width: var(--sidebar-width);
+    height: calc(100vh - (100vh - 100%));
+    position: fixed;
+    border: 3px solid orange;
 }
+
 
 @media screen and (max-width: 991px) {
     /* start of large tablet styles */
+    :root {
+        /* sizes */
+        --header-height: 4rem;
+        --sidebar-width: 16rem;
+        --content-margin: 1rem;
+    }
     html {
         font-size: var(--font-pc);
-    }
-    .layout {
-        grid-template-columns: calc(var(--sidebar-width_pc)*0.8) auto;
-        grid-template-rows: var(--header-height_pc) minmax(max-content, 1fr)  2rem;
-    }    
+    }   
 }
-    
+
+
 @media screen and (max-width: 479px) {
     /* start of phone styles */
     html {
         font-size: var(--font-mobile);
     }
-    .layout {
-        grid-template-columns: auto;
-        grid-template-rows: minmax(max-content, 1fr) 4rem minmax(max-content, 1fr) minmax(max-content, 1fr);
-        grid-gap: 1rem 1rem;
-        grid-template-areas:
-            "sidebar"
-            "banner"
-            "pagecontent"
-            "floor";
+    .container {  
+        width: calc(100vw - (100vw - 100%));
+        margin-left: 0;
+        height: fit-content;
     }
-    
+    .sidebars{
+        display: block;
+        width: calc(100vw - (100vw - 100%));
+        height: fit-content;
+        position: relative;
+        border: 3px solid orange;
+    }
 }
 
 @media screen and (max-width: 300px) {
     /* start of small phone styles */
     html {
-        font-size: var(--font-mobile);
+        font-size: calc(var(--font-mobile) * 0.8 );
     }    
 }
-/* ----------------------- */
-/* @Media Specific Styling */
+
+
+aside { 
+    --bg-image: url(/src/image/aside_bg.webp);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-family: var(--sans-1);
+    background: 
+        linear-gradient(180deg, rgba(var(--graphite-rgb), 1), rgba(var(--graphite-rgb), 0.3)), 
+        var(--bg-image);
+        border: 2px dotted cyan;
+}
+ 
+.layout {  
+    display: grid;
+    grid-area: page-main;
+    height: 100%;
+    width: 100%;
+    padding: 0rem;
+    grid-template-rows: var(--header-height) max-content var(--footer-height) ;
+    grid-gap: 0rem;
+    grid-template-areas:
+      "banner"
+      "pagecontent"
+      "floor";
+    border: 3px solid purple;
+}
+
+
+header { 
+    grid-area: banner; 
+    background-color: var(--graphite);
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    text-anchor: middle;
+    font-family: var(--sans-1);
+    font-weight: bolder;
+    border: 3px solid palegreen;
+}
+
+main { 
+    grid-area: pagecontent; 
+    display: block;
+    background-color: var(--dove);
+    margin: 0 2rem 0 2rem;
+    padding-top: var(--main-margin);
+    padding-bottom: var(--main-margin);
+    min-height: calc( 100vh - var(--header-height) - var(--footer-height) - var(--main-margin) );
+    border: 3px solid fuchsia;
+}
+
+footer { 
+    grid-area: floor; 
+    background-color: var(--graphite);
+    color: var(--ash);
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    text-anchor: middle;
+    font-family: var(--sans-1);
+    font-weight: bolder;
+    border: 3px solid yellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 aside { 
@@ -177,7 +280,7 @@ footer p {
       "profile-nav"
       "profile-footer";
     align-items: center;
-    margin: 1rem;
+    padding: 1rem;
 }
 
 .profile img{
@@ -281,6 +384,7 @@ footer p {
 @media screen and (max-width: 479px) {
     /* start of phone styles */
     .profile {
+        margin: 0;
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
@@ -322,3 +426,4 @@ footer p {
         text-align: center;
     }
 }
+
